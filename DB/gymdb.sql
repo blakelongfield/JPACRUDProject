@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS `gym` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
-  `classes` VARCHAR(45) NULL,
-  `equipment` VARCHAR(45) NULL,
+  `classes_attended` VARCHAR(45) NULL,
+  `favorite_equipment` VARCHAR(45) NULL,
   `age` INT NOT NULL,
-  `gender` VARCHAR(10) NOT NULL,
+  `gender` VARCHAR(1) NOT NULL,
   `weight` INT NOT NULL,
-  `height` INT NOT NULL,
+  `height` DOUBLE NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -49,8 +49,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gymdb`;
-INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes`, `equipment`, `age`, `gender`, `weight`, `height`) VALUES (1, 'Becky', 'Biceps', NULL, NULL, 32, 'F', 153, 5.0);
-INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes`, `equipment`, `age`, `gender`, `weight`, `height`) VALUES (2, 'Tommy', 'Triceps', NULL, NULL, 25, 'M', 180, 6.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (1, 'Becky', 'Biceps', NULL, NULL, 32, 'F', 153, 5.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (2, 'Tommy', 'Triceps', NULL, NULL, 25, 'M', 180, 6.0);
 
 COMMIT;
 
