@@ -28,15 +28,13 @@ public class Gym {
 	
 	private String gender;
 	
-	private Integer weight;
+	private Double weight;
 	
-	private Double height;
-
 	@Override
 	public String toString() {
 		return "Gym ID: " + id + "\nFirstName: " + firstName + "\nLastName: " + lastName + "\nClasses Attended: "
 				+ classesAttended + "\nFavorite Equipement: " + favoriteEquipment + "\nAge: " + age + "\nGender: " + gender
-				+ "\nWeight: " + weight + "\nHeight: " + height;
+				+ "\nWeight: " + weight;
 	}
 
 	public int getId() {
@@ -54,8 +52,6 @@ public class Gym {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
 
 	public String getLastName() {
 		return lastName;
@@ -97,20 +93,29 @@ public class Gym {
 		this.gender = gender;
 	}
 
-	public Integer getWeight() {
-		return weight;
+	public Gym() {
+		super();
 	}
 
-	public void setWeight(Integer weight) {
+	public Gym(String firstName, String lastName, String classesAttended, String favoriteEquipment, Integer age,
+			String gender, Double weight) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.classesAttended = classesAttended;
+		this.favoriteEquipment = favoriteEquipment;
+		this.age = age;
+		this.gender = gender;
 		this.weight = weight;
 	}
 
-	public Double getHeight() {
-		return height;
-	}
-
-	public void setHeight(Double height) {
-		this.height = height;
+	public Gym(String firstName, String lastName, Integer age, String gender, Double weight) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.gender = gender;
+		this.weight = weight;
 	}
 
 	@Override
@@ -122,7 +127,6 @@ public class Gym {
 		result = prime * result + ((favoriteEquipment == null) ? 0 : favoriteEquipment.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-		result = prime * result + ((height == null) ? 0 : height.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((weight == null) ? 0 : weight.hashCode());
@@ -163,11 +167,6 @@ public class Gym {
 				return false;
 		} else if (!gender.equals(other.gender))
 			return false;
-		if (height == null) {
-			if (other.height != null)
-				return false;
-		} else if (!height.equals(other.height))
-			return false;
 		if (id != other.id)
 			return false;
 		if (lastName == null) {
@@ -183,21 +182,16 @@ public class Gym {
 		return true;
 	}
 
-	public Gym() {
-		super();
+	public Double getWeight() {
+		return weight;
 	}
 
-	public Gym(String firstName, String lastName, String classesAttended, String favoriteEquipment, Integer age,
-			String gender, Integer weight, Double height) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.classesAttended = classesAttended;
-		this.favoriteEquipment = favoriteEquipment;
-		this.age = age;
-		this.gender = gender;
+	public void setWeight(Double weight) {
 		this.weight = weight;
-		this.height = height;
+	}
+
+	public void setFavoriteEquipment(String favoriteEquipment) {
+		this.favoriteEquipment = favoriteEquipment;
 	}
 
 

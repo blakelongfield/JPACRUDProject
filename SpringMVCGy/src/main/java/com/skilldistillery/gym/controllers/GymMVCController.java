@@ -31,31 +31,38 @@ public class GymMVCController {
 		return mv;
 	}
 
-	@RequestMapping(path = "addAGymMember.do", params = { "firstName", "lastName", "classesAttended",
-			"favoriteEquipment", "age", "gender", "weight", "height" }, method = RequestMethod.POST)
-	public ModelAndView addAGymMember(String firstName, String lastName, String classesAttended,
-			String favoriteEquipment, Integer age, String gender, Integer weight, Double height) {
+	@RequestMapping(path = "addAGymMember.do", method = RequestMethod.POST)
+	public ModelAndView addAGymMember(String firstName, String lastName, Integer age, String gender, Double weight) {
 		ModelAndView mv = new ModelAndView();
-		Gym gymMember = new Gym(firstName, lastName, classesAttended, favoriteEquipment, age, gender, weight, height);
+		Gym gymMember = new Gym(firstName, lastName, age, gender, weight);
 		gymMember = gymDAO.add(gymMember);
 		mv.addObject("gymMember", gymMember);
 
+		System.out.println(gymMember);
 		if (!gymMember.equals(null)) {
 			mv.setViewName("WEB-INF/views/success.jsp");
 		}
+		
 		else {
-			//does this print?
-			System.out.println("Your request was not completed");
 			mv.setViewName("WEB-INF/views/create.jsp");
 		}
 		return mv;
 	}
 
-	@RequestMapping(path = "showAllGymMemberDetails.do", params = "id", method = RequestMethod.GET)
+	@RequestMapping(path = "searchByKeyword.do", params = "keyword", method = RequestMethod.GET)
+	public ModelAndView getGymMember(String keyword) {
+		ModelAndView mv = new ModelAndView();
+		List<Gym> gym = gymDAO.findByKeyword(keyword);
+		mv.addObject("gymMembers", gym);
+		mv.setViewName("WEB-INF/views/details.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "searchByID.do", params = "id", method = RequestMethod.GET)
 	public ModelAndView getGymMember(int id) {
 		ModelAndView mv = new ModelAndView();
-		Gym gymMemberDetails = gymDAO.findById(id);
-		mv.addObject("gym", gymMemberDetails);
+		Gym gym = gymDAO.findById(id);
+		mv.addObject("gym", gym);
 		mv.setViewName("WEB-INF/views/details.jsp");
 		return mv;
 	}
@@ -63,18 +70,39 @@ public class GymMVCController {
 	@RequestMapping(path = "updateGymMember.do", method = RequestMethod.GET)
 	public ModelAndView updateGymMember(int id) {
 		ModelAndView mv = new ModelAndView();
-		Gym updateGymMember = gymDAO.findById(id);
-		mv.addObject("updateGymMembers", updateGymMember);
+		Gym gymMember = gymDAO.findById(id);
+		mv.addObject("gym", gymMember);
 		mv.setViewName("WEB-INF/views/update.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "update.do", method = RequestMethod.POST)
+	public ModelAndView updateGymMemberHelper(Integer id, String firstName, String lastName, Integer age, String gender, Double weight) {
+		ModelAndView mv = new ModelAndView();
+		Gym updatedMember = gymDAO.findById(id);
+		updatedMember.setFirstName(firstName);
+		updatedMember.setLastName(lastName);
+		updatedMember.setAge(age);
+		updatedMember.setGender(gender);
+		updatedMember.setLastName(lastName);
+		
+		updatedMember = gymDAO.update(updatedMember);
+		mv.addObject("gym", updatedMember);
+		mv.setViewName("WEB-INF/views/details.jsp");
+		
 		return mv;
 	}
 
 	@RequestMapping(path = "deleteGymMember.do", method = RequestMethod.GET)
 	public ModelAndView deleteGymMember(int id) {
 		ModelAndView mv = new ModelAndView();
-		Gym deleteGymMember = gymDAO.findById(id);
-		mv.addObject("deleteGymMembers", deleteGymMember);
-		mv.setViewName("WEB-INF/views/delete.jsp");
+		boolean deleted = gymDAO.deletedById(id);
+		if (deleted == true) {
+		mv.setViewName("WEB-INF/views/success.jsp");
+		}
+		else {
+			mv.setViewName("WEB-INF/views/home.jsp");
+		}
 		return mv;
 	}
 }

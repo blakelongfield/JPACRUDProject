@@ -1,5 +1,6 @@
 package com.skilldistillery.gym.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,6 +22,16 @@ public class GymDAOImpl implements GymDAO{
 		Gym gymGoer = em.find(Gym.class, id);
 		return gymGoer;
 	}
+	
+	@Override
+	public List<Gym> findByKeyword(String keyword) {
+		List<Gym> gymMember = new ArrayList<>();
+		String queryString = "SELECT g FROM Gym g WHERE g.firstName LIKE ?1 OR g.lastName LIKE ?2";
+		gymMember = em.createQuery(queryString, Gym.class).setParameter(1, "%" + keyword + "%").setParameter(2, "%" + keyword + "%")
+				.getResultList();
+		System.out.println(gymMember);
+		return gymMember;
+	}
 
 	@Override
 	public List<Gym> findAll() {
@@ -30,27 +41,38 @@ public class GymDAOImpl implements GymDAO{
 	}
 
 	@Override
-	public Gym add(Gym g) {
-		String queryString = "SELECT";
-		return null;
+	public Gym add(Gym newMember) {
+		em.persist(newMember);
+		em.flush();
+		em.close();
+		return newMember;
 	}
 
 	@Override
-	public Gym update(Gym g) {
-		String queryString = "SELECT";
-		return null;
+	public Gym update(Gym gymMember) {
+		Gym updatedGymMember = em.find(Gym.class, gymMember.getId());
+		if (gymMember != null) {
+			updatedGymMember.setFirstName(gymMember.getFirstName());
+			updatedGymMember.setLastName(gymMember.getLastName());
+			updatedGymMember.setClassesAttended(gymMember.getClassesAttended());
+			updatedGymMember.setFavoriteEquipement(gymMember.getFavoriteEquipment());
+			updatedGymMember.setAge(gymMember.getAge());
+			updatedGymMember.setGender(gymMember.getGender());
+			updatedGymMember.setLastName(gymMember.getLastName());
+		}
+		em.persist(updatedGymMember);
+		em.flush();
+		em.close();
+		return updatedGymMember;
 	}
 
 	@Override
 	public boolean deletedById(int id) {
 		Gym gymMember = em.find(Gym.class, id);
 		
-		em.getTransaction().begin();
-
 		em.remove(gymMember);
 
 		if (em.find(Gym.class, id) == null) {
-			em.getTransaction().commit();
 			em.close();
 			return true;
 		} else {

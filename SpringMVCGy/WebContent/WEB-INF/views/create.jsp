@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add a New Gym Member</title>
 </head>
 <body>
+
+<h3>Add a New Gym Member</h3>
 
 </body>
 </html>

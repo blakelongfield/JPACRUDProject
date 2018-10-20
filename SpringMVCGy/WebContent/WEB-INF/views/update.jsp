@@ -10,11 +10,12 @@
 
 <h3>Update a Gym Member</h3>
 
-<form action="update.do" method="GET">
+<form action="update.do" method="POST">
 
 		<!-- Why is this not working? Do this in all text boxes. -->
-		<p>${gym.id}<p>
-
+		<p>Gym Member ID: ${gym.id}<p>
+		
+		ID: <input type="hidden" name="id" value="${gym.id}"/>
 		
 		First Name: <input type="text" name="firstName" value="${gym.firstName}"/> 
 		<br>	
@@ -40,10 +41,6 @@
 		
 		<!-- Take in a double? -->	
 		Weight: <input type="number" name="weight" value="${gym.weight}"/> 
-		<br>
-			
-		<!-- Figure out a way to store feet and inches better -->
-		Height: <input type="text" name="height" value="${gym.height}"/> 
 		<br>
 		
 		<input type="submit" value="Submit" /> 

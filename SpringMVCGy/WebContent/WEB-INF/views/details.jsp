@@ -11,29 +11,59 @@
 </head>
 <body>
 	
-	<!-- Why is this not working??? along with otherwise -->
-	<%-- <c:when test="${not empty gymMemberDetails}"> --%>
+	<c:choose>
+	<c:when test="${not empty gym}"> 
 
 		<div>
-			<h3>${gym.firstName}${gym.lastName}</h3>
+			<h3>${gym.firstName} ${gym.lastName}</h3>
 			<p>Classes Attended: ${gym.classesAttended}</p>
 			<p>Favorite Equipment: ${gym.favoriteEquipment}</p>
 			<p>Age: ${gym.age}</p>
 			<p>Gender: ${gym.gender}</p>
 			<p>Weight: ${gym.weight} pounds</p>
-			<p>Height: ${gym.height}</p>
 		</div>
+		
+		<form action="home.do" method="GET">
+			<input type="hidden" name="id" /> <br> <input type="submit"
+				value="Main Menu" />
+		</form>
+	</c:when>
+
+	<c:when test="${not empty gymMembers}"> 
+	
+		<c:forEach items="${gymMembers}" var="gym">
+
+		<div>
+			<h3>${gym.firstName} ${gym.lastName}</h3>
+			<p>Classes Attended: ${gym.classesAttended}</p>
+			<p>Favorite Equipment: ${gym.favoriteEquipment}</p>
+			<p>Age: ${gym.age}</p>
+			<p>Gender: ${gym.gender}</p>
+			<p>Weight: ${gym.weight} pounds</p>
+		</div>
+		
+		</c:forEach>
 
 		<form action="home.do" method="GET">
 			<input type="hidden" name="id" /> <br> <input type="submit"
 				value="Main Menu" />
 		</form>
+	</c:when>
+	
 
-		<%-- <c:otherwise>
+		<c:otherwise>
 			<p>No Member found</p>
+			
+			<form action="home.do" method="GET">
+			<input type="hidden" name="id" /> <br> <input type="submit"
+				value="Main Menu" />
+				
+		</form>
 		</c:otherwise>
+	</c:choose>
+	
+	
 
-	</c:when> --%>
 
 </body>
 </html>

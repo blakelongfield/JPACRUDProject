@@ -35,9 +35,7 @@ class GymTests {
 		assertEquals("Biceps", gym.getLastName());
 		assertEquals(32, gym.getAge().intValue());
 		assertEquals("F", gym.getGender());
-		assertEquals(153, gym.getWeight().intValue());
-		assertEquals(5.0, gym.getHeight().doubleValue());
-		
+		assertEquals(153, gym.getWeight().intValue());		
 	}
 	
 	@AfterEach

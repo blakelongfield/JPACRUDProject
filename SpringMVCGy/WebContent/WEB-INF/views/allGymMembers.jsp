@@ -16,7 +16,7 @@
 		<p>ID: ${gym.id}</p>
 		<p>Name: ${gym.firstName} ${gym.lastName}</p>
 		<hr>
-
+	
 	</c:forEach>
 	
 	<form action="home.do" method="GET">

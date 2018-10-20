@@ -10,5 +10,6 @@ public interface GymDAO {
 	Gym add(Gym g);
 	Gym update(Gym g);
 	boolean deletedById(int id);
+	List<Gym> findByKeyword(String keyword);
 
 }
