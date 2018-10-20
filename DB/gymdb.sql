@@ -58,6 +58,11 @@ INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorit
 INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (8, 'Roger', 'Roids', 'TRX', 'Bench Press', 56, 'M', 195);
 INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (9, 'Frankie', 'Forearms', 'Back-Attack', 'Pull-Up', 67, 'M', 185);
 INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (10, 'Jane', 'Jogger', 'Full-Body-Attack', 'Treadmill', 45, 'F', 130);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (11, 'Calvin', 'Calves', 'Back-Attack', 'Cables', 53, 'M', 167);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (12, 'Rachel', 'Runner', 'Full-Body-Attack', 'Elliptical', 42, 'F', 300);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (13, 'Larry', 'Lats', 'TRX', 'Squat Rack', 35, 'F', 135);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (14, 'Gary', 'Guns', 'Cycle', 'Dumbells', 34, 'M', 250);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`) VALUES (15, 'Peter', 'Protein', 'H.I.T.', 'Ab-blaster', 56, 'M', 225);
 
 COMMIT;
 
