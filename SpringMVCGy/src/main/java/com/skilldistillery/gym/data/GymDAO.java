@@ -9,7 +9,6 @@ public interface GymDAO {
 	List<Gym> findAll();
 	Gym add(Gym g);
 	Gym update(Gym g);
-	boolean delete (Gym g);
-	boolean deletedById(int gid);
+	boolean deletedById(int id);
 
 }

@@ -22,7 +22,7 @@ public class Gym {
 	private String classesAttended;
 	
 	@Column(name="favorite_equipment")
-	private String favoriteEquipement;
+	private String favoriteEquipment;
 	
 	private Integer age;
 	
@@ -34,9 +34,9 @@ public class Gym {
 
 	@Override
 	public String toString() {
-		return "Gym ID: " + id + "\nFirstName: " + firstName + "LastName: " + lastName + "ClassesAttended: "
-				+ classesAttended + "FavoriteEquipement: " + favoriteEquipement + "Age: " + age + "Gender: " + gender
-				+ "Weight: " + weight + "Height: " + height;
+		return "Gym ID: " + id + "\nFirstName: " + firstName + "\nLastName: " + lastName + "\nClasses Attended: "
+				+ classesAttended + "\nFavorite Equipement: " + favoriteEquipment + "\nAge: " + age + "\nGender: " + gender
+				+ "\nWeight: " + weight + "\nHeight: " + height;
 	}
 
 	public int getId() {
@@ -73,12 +73,12 @@ public class Gym {
 		this.classesAttended = classesAttended;
 	}
 
-	public String getFavoriteEquipement() {
-		return favoriteEquipement;
+	public String getFavoriteEquipment() {
+		return favoriteEquipment;
 	}
 
-	public void setFavoriteEquipement(String favoriteEquipement) {
-		this.favoriteEquipement = favoriteEquipement;
+	public void setFavoriteEquipement(String favoriteEquipment) {
+		this.favoriteEquipment = favoriteEquipment;
 	}
 
 	public Integer getAge() {
@@ -119,7 +119,7 @@ public class Gym {
 		int result = 1;
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
 		result = prime * result + ((classesAttended == null) ? 0 : classesAttended.hashCode());
-		result = prime * result + ((favoriteEquipement == null) ? 0 : favoriteEquipement.hashCode());
+		result = prime * result + ((favoriteEquipment == null) ? 0 : favoriteEquipment.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((height == null) ? 0 : height.hashCode());
@@ -148,10 +148,10 @@ public class Gym {
 				return false;
 		} else if (!classesAttended.equals(other.classesAttended))
 			return false;
-		if (favoriteEquipement == null) {
-			if (other.favoriteEquipement != null)
+		if (favoriteEquipment == null) {
+			if (other.favoriteEquipment != null)
 				return false;
-		} else if (!favoriteEquipement.equals(other.favoriteEquipement))
+		} else if (!favoriteEquipment.equals(other.favoriteEquipment))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -187,13 +187,13 @@ public class Gym {
 		super();
 	}
 
-	public Gym(String firstName, String lastName, String classesAttended, String favoriteEquipement, Integer age,
+	public Gym(String firstName, String lastName, String classesAttended, String favoriteEquipment, Integer age,
 			String gender, Integer weight, Double height) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.classesAttended = classesAttended;
-		this.favoriteEquipement = favoriteEquipement;
+		this.favoriteEquipment = favoriteEquipment;
 		this.age = age;
 		this.gender = gender;
 		this.weight = weight;

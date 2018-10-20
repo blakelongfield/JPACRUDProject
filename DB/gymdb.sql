@@ -49,8 +49,16 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gymdb`;
-INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (1, 'Becky', 'Biceps', NULL, NULL, 32, 'F', 153, 5.0);
-INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (2, 'Tommy', 'Triceps', NULL, NULL, 25, 'M', 180, 6.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (1, 'Becky', 'Biceps', 'Yoga', 'Dumbbells', 32, 'F', 153, 5.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (2, 'Tommy', 'Triceps', 'TRX', 'Cables', 25, 'M', 180, 6.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (3, 'Gina', 'Glutes', 'H.I.T', 'Squat Rack', 26, 'F', 178, 5.8);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (4, 'John', 'JuicedUp', 'Full-Body-Attack', 'Bench Press', 30, 'M', 210, 6.0);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (5, 'Samantha', 'Shredded', 'Ab-Attack', 'Ab-blaster', 45, 'F', 140, 5.4);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (6, 'Michael', 'Meathead', 'Cycle', 'Dumbells', 23, 'M', 250, 6.4);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (7, 'Cindy', 'Crunch', 'Ab-Attack', 'Ab-blaster', 19, 'F', 142, 5.2);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (8, 'Roger', 'Roids', 'TRX', 'Bench Press', 56, 'M', 195, 6.3);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (9, 'Frankie', 'Forearms', 'Back-Attack', 'Pull-Up', 67, 'M', 185, 5.9);
+INSERT INTO `gym` (`id`, `first_name`, `last_name`, `classes_attended`, `favorite_equipment`, `age`, `gender`, `weight`, `height`) VALUES (10, 'Jane', 'Jogger', 'Full-Body-Attack', 'Treadmill', 45, 'F', 130, 5.4);
 
 COMMIT;
 
