@@ -36,15 +36,12 @@ public class GymMVCController {
 		ModelAndView mv = new ModelAndView();
 		Gym gymMember = new Gym(firstName, lastName, age, gender, weight);
 		gymMember = gymDAO.add(gymMember);
-		mv.addObject("gymMember", gymMember);
-
-		System.out.println(gymMember);
+		mv.addObject("gym", gymMember);
 		if (!gymMember.equals(null)) {
-			mv.setViewName("WEB-INF/views/success.jsp");
-		}
-		
-		else {
 			mv.setViewName("WEB-INF/views/create.jsp");
+		}	
+		else {
+			mv.setViewName("WEB-INF/views/home.jsp");
 		}
 		return mv;
 	}
@@ -85,6 +82,7 @@ public class GymMVCController {
 		updatedMember.setAge(age);
 		updatedMember.setGender(gender);
 		updatedMember.setLastName(lastName);
+		updatedMember.setWeight(weight);
 		
 		updatedMember = gymDAO.update(updatedMember);
 		mv.addObject("gym", updatedMember);
@@ -97,8 +95,9 @@ public class GymMVCController {
 	public ModelAndView deleteGymMember(int id) {
 		ModelAndView mv = new ModelAndView();
 		boolean deleted = gymDAO.deletedById(id);
+		mv.addObject("gym", deleted);
 		if (deleted == true) {
-		mv.setViewName("WEB-INF/views/success.jsp");
+		mv.setViewName("WEB-INF/views/delete.jsp");
 		}
 		else {
 			mv.setViewName("WEB-INF/views/home.jsp");

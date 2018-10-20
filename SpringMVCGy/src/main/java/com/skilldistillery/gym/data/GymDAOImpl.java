@@ -29,7 +29,6 @@ public class GymDAOImpl implements GymDAO{
 		String queryString = "SELECT g FROM Gym g WHERE g.firstName LIKE ?1 OR g.lastName LIKE ?2";
 		gymMember = em.createQuery(queryString, Gym.class).setParameter(1, "%" + keyword + "%").setParameter(2, "%" + keyword + "%")
 				.getResultList();
-		System.out.println(gymMember);
 		return gymMember;
 	}
 
@@ -59,6 +58,7 @@ public class GymDAOImpl implements GymDAO{
 			updatedGymMember.setAge(gymMember.getAge());
 			updatedGymMember.setGender(gymMember.getGender());
 			updatedGymMember.setLastName(gymMember.getLastName());
+			updatedGymMember.setWeight(gymMember.getWeight());
 		}
 		em.persist(updatedGymMember);
 		em.flush();
