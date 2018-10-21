@@ -44,7 +44,7 @@
 					<br>
 
 					<!-- Take in a double? -->
-					Weight: <input type="number" name="weight" value="${gym.weight}" />
+					Weight: <input type="number" step="any" name="weight" value="${gym.weight}" />
 					<br> 
 					
 					<input type="submit" value="Submit" value="Enter an ID"/>

@@ -13,21 +13,23 @@ import com.skilldistillery.gym.entities.Gym;
 
 @Transactional
 @Repository
-public class GymDAOImpl implements GymDAO{
+public class GymDAOImpl implements GymDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Gym findById(int id) {
-		Gym gymGoer = em.find(Gym.class, id);
-		return gymGoer;
+		Gym gymMember = em.find(Gym.class, id);
+		return gymMember;
 	}
-	
+
 	@Override
 	public List<Gym> findByKeyword(String keyword) {
 		List<Gym> gymMember = new ArrayList<>();
 		String queryString = "SELECT g FROM Gym g WHERE g.firstName LIKE ?1 OR g.lastName LIKE ?2";
-		gymMember = em.createQuery(queryString, Gym.class).setParameter(1, "%" + keyword + "%").setParameter(2, "%" + keyword + "%")
+		gymMember = em.createQuery(queryString, Gym.class)
+				.setParameter(1, "%" + keyword + "%")
+				.setParameter(2, "%" + keyword + "%")
 				.getResultList();
 		return gymMember;
 	}
@@ -69,9 +71,12 @@ public class GymDAOImpl implements GymDAO{
 	@Override
 	public boolean deletedById(int id) {
 		Gym gymMember = em.find(Gym.class, id);
-		
-		em.remove(gymMember);
 
+		if (gymMember != null) {
+			em.remove(gymMember);
+		} else {
+			return false;
+		}
 		if (em.find(Gym.class, id) == null) {
 			em.close();
 			return true;

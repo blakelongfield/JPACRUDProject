@@ -13,8 +13,8 @@
 			<h3>Your Request Was Completed!</h3>
 
 		<form action="home.do" method="GET">
-			<input type="hidden" name="id" /> <br> <input type="submit"
-				value="Main Menu" />
+			<input type="hidden" name="id" /> <br> 
+			<input type="submit" value="Main Menu" />
 		</form>
 
 </body>

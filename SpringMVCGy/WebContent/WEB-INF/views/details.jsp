@@ -23,9 +23,19 @@
 			<p>Weight: ${gym.weight} pounds</p>
 		</div>
 		
+		<form action="updateGymMember.do" method="GET">
+			<input type="hidden" name="id" value="${gym.id}" /> 
+			<input type="submit" value="Update" />
+		</form>
+
+		<form action="deleteGymMember.do" method="GET">
+			<input type="hidden" name="id" value="${gym.id}" /> 
+			<input type="submit" value="Delete" />
+		</form>
+		<br><br>
 		<form action="home.do" method="GET">
-			<input type="hidden" name="id" /> <br> <input type="submit"
-				value="Main Menu" />
+			<input type="hidden" name="id" />
+			<input type="submit" value="Main Menu" />
 		</form>
 	</c:when>
 

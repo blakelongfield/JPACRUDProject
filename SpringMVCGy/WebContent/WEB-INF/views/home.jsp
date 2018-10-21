@@ -11,9 +11,6 @@
 	<h1>Gym Member Database</h1>
 	<br>
 
-	<form action="showAllGymMembers.do" method="GET">
-		<input type="submit" value="Show All Gym Members" />
-	</form>
 	
 		<h4>Search For a Member</h4>
 	<form action="searchByID.do" method="GET">
@@ -25,6 +22,9 @@
 		<input type="submit" value="Submit" />
 	</form>
 	<br>
+	<form action="showAllGymMembers.do" method="GET">
+		<input type="submit" value="Show All Gym Members" />
+	</form>
 	
 	<h4>Add a Member</h4>
 	<form action="addAGymMember.do" method=POST> 
@@ -32,18 +32,18 @@
 	Last Name: <input type="text" name="lastName" /> <br>
 	Age: <input type="number" name="age" /> <br>
 	Gender(M/F): <input type="text" name="gender" /> <br>
-	Weight: <input type="number" name="weight" /> <br>
+	Weight: <input type="number" step="any" name="weight" /> <br>
 	<input type="submit" value="Submit" />
 		
 	</form>
-	<br>
+	
 		
 	<form action="updateGymMember.do" method="GET">
 	<h4>Update a Member</h4>
 		<input type="text" name="id" value="Search By ID"/>
 		<input type="submit" value="Submit" />
 	</form>
-	<br>
+	
 
 	<form action="deleteGymMember.do" method="GET">
 	<h4>Delete a Member</h4>

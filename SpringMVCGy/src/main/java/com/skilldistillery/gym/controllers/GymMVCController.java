@@ -74,11 +74,13 @@ public class GymMVCController {
 	}
 	
 	@RequestMapping(path = "update.do", method = RequestMethod.POST)
-	public ModelAndView updateGymMemberHelper(Integer id, String firstName, String lastName, Integer age, String gender, Double weight) {
+	public ModelAndView updateGymMemberHelper(Integer id, String firstName, String lastName, String classesAttended, String favoriteEquipment, Integer age, String gender, Double weight) {
 		ModelAndView mv = new ModelAndView();
 		Gym updatedMember = gymDAO.findById(id);
 		updatedMember.setFirstName(firstName);
 		updatedMember.setLastName(lastName);
+		updatedMember.setClassesAttended(classesAttended);
+		updatedMember.setFavoriteEquipment(favoriteEquipment);
 		updatedMember.setAge(age);
 		updatedMember.setGender(gender);
 		updatedMember.setLastName(lastName);
