@@ -13,15 +13,31 @@
 
 	<c:forEach items="${gymMembers}" var="gym">
 
-		<p>ID: ${gym.id}</p>
+		<p>Gym Member ID: ${gym.id}</p>
 		<p>Name: ${gym.firstName} ${gym.lastName}</p>
+
+		<form action="searchByID.do" method="GET">
+			<input type="hidden" name="id" value="${gym.id}" /> 
+			<input type="submit" value="Details" />
+		</form>
+		
+		<form action="updateGymMember.do" method="GET">
+			<input type="hidden" name="id" value="${gym.id}" /> 
+			<input type="submit" value="Update" />
+		</form>
+
+		<form action="deleteGymMember.do" method="GET">
+			<input type="hidden" name="id" value="${gym.id}" /> 
+			<input type="submit" value="Delete" />
+		</form>
+
 		<hr>
-	
+
 	</c:forEach>
-	
+
 	<form action="home.do" method="GET">
-		<input type="hidden" name="id" /> <br> 
-		<input type="submit" value="Main Menu" />
+		<input type="hidden" name="id" /> <br> <input type="submit"
+			value="Main Menu" />
 	</form>
 
 </body>

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-			<h3>Your Request Was Complete!</h3>
+			<h3>Your Request Was Completed!</h3>
 
 		<form action="home.do" method="GET">
 			<input type="hidden" name="id" /> <br> <input type="submit"

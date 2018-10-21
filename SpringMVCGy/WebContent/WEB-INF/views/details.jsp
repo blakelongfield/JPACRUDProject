@@ -40,6 +40,7 @@
 			<p>Age: ${gym.age}</p>
 			<p>Gender: ${gym.gender}</p>
 			<p>Weight: ${gym.weight} pounds</p>
+			<hr>
 		</div>
 		
 		</c:forEach>
