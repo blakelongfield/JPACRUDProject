@@ -43,7 +43,6 @@
 					Gender: <input type="text" name="gender" value="${gym.gender}" />
 					<br>
 
-					<!-- Take in a double? -->
 					Weight: <input type="number" step="any" name="weight" value="${gym.weight}" />
 					<br> 
 					
